@@ -4,7 +4,7 @@ const Porject = require("../models/porjectModel");
 
 const mongoose = require("mongoose");
 const getAllProjects = async (req, res) => {
-  const projects = await Porject.find({});
+  const projects = await Porject.find({}).sort({ createdAt: -1 }); // descending, newly added project on top
   res.status(200).json(projects);
 };
 
